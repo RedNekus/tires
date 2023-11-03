@@ -1,0 +1,94 @@
+- let socialsList =  { 'ok' : 'https://ok.ru/group/70000000915646', 'vk' : 'https://vk.com/autoservis_slonim','instagram' : 'https://www.instagram.com/forsageslonim','tiktok' : 'https://www.tiktok.com/@forsageslonim','youtube' : 'https://www.youtube.com/@forsageslonim' }
+
+mixin socialButtons(socials)
+    each link, key in socials
+        a.social__link(href=link)
+            svg(class=['social__icon', 'social__icon-' + key])
+                use(xlink:href="#" + key)
+            |
+            |
+        |
+        |
+mixin shop(title, ...addrArray)
+    div.shops__item
+        h2= title
+        if addrArray
+            div.shop__body
+                each addr in addrArray
+                    div.shop__addr
+                        each line, i in addr
+                            p(class=(i === 0 ? 'first-line' : '' ))= line
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title TEST DOCUMENT
+        meta(name="description" content="")
+        link(rel="icon" href="favicons/favicon.ico" sizes="any")
+        link(rel="apple-touch-icon" href="favicons/apple-touch-icon-180x180.png" sizes="180x180")
+        link(rel="stylesheet" href="css/style.min.css")
+    body
+        include ./components/icons.pug  
+        header.top
+            div.logo
+                img.logo__img(src="images/logo.svg")
+            div.social
+                |
+                |
+                +socialButtons(socialsList)
+            div.top__button
+                a.btn(href="#") На сайт магазина
+        main
+            section.jumbotron
+                h1.jumbotron__title
+                    svg(version="1.1" xmlns="//www.w3.org/2000/svg" xmlns:xlink="//www.w3.org/1999/xlink" width="100%")
+                        text.stroke-text(y="50%" text-anchor="middle" dominant-baseline="hanging" fill="white" stroke-width="22" paint-order="stroke") Подберем шины быстро
+                div.jumbotron__picture
+                    img(src="images/main_picture.png")
+            section.content
+                div.content__decription
+                    ul.content__list
+                        each item in ['Оплата частями до 36 месяцев', 'Оплата картими рассрочек', 'Бесплатный шиномонтаж']
+                            li.content__list-item= item
+                div.content__form
+                    form.form
+                        each value, index in {'name' : 'Имя', 'phone' : 'Телефон', 'car_model' : 'Марка авто'}
+                            div.form__group 
+                                input(
+                                    type='text'
+                                    name=index
+                                    id=index
+                                    placeholder=value
+                                )
+                        div.form__footer
+                            button.btn.btn-form(
+                                type="submit" 
+                            ) Подобрать шины
+
+        footer.footer
+            div.shops
+                +shop(
+                    'Автосервис в Слониме',
+                    [
+                        'Автосервис',
+                        'г. Слоним, ул. Я. Купалы, 27',
+                        'Пн-Пт: 9.00-18.00; Сб: 9:00-15:00',
+                        'Viber, Telegram: +375(29)283-87-75'
+                    ],
+                    [
+                        'Экспресс-сервис',
+                        'г. Слоним, ул. Горького, 5',
+                        'Пн-Пт: 9.00-18.00; Сб: 9:00-15:00',
+                        'Viber, Telegram: +375(29)615-42-19'
+                    ]
+                )
+                +shop(
+                    'Интернет-магазин автозапчастей в Слониме',
+                    [
+                        'Автомагазин',
+                        'г. Слоним, ул. Я. Купалы, 35',
+                        'Пн-Пт: с 9:00 до 20:00, Сб: с 9:00 до 19:00, Вс: с 9:00 до 18:00'
+                    ]
+                )

@@ -1,0 +1,21 @@
+body {
+	background-color: #191919;
+	color: #FFFFFF;
+	font-family: 'Inter';
+	font-size: 20px;
+}
+.jumbotron {
+	&__title {
+		font-family: 'Bebas Neue Cyrillic';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 98px;
+		line-height: 1.13;
+		letter-spacing: -0.025em;
+		color: #FFFFFF;
+		.stroke-text {
+		  stroke-width:7px;
+		  fill:none;
+		}
+	}
+}

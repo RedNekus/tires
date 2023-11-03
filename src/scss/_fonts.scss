@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Inter';
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    font-display: fallback;
+    src: local('Inter.ttf') url('../fonts/Inter.woff2') format('woff2'),
+        url('../fonts/Inter.woff') format('woff');
+}
