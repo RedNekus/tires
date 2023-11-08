@@ -1,21 +1,218 @@
+%input {
+	font-size: 24px;
+	padding: 23px 54px;
+	height: 75px;
+	box-sizing: border-box;
+
+}
+
 body {
 	background-color: #191919;
 	color: #FFFFFF;
 	font-family: 'Inter';
 	font-size: 20px;
+	margin: 0;
+	padding: 0;
 }
+img {
+	max-width: 100%;
+}
+a {
+	text-decoration: none;
+}
+
+.top {
+	display: grid;
+	grid-template-columns:1fr repeat(3, auto);
+	gap: 30px;
+	align-items: center;
+	padding: 30px 70px;
+	color: #000;
+	font-size: 24px;
+	.logo {
+		width: 180px;
+		height: 32px;
+		flex-shrink: 0;
+	}
+	&__link {
+		text-decoration: none;
+		color: inherit;
+		border: 1px solid #787878;
+	}
+	&__phone a {
+		color: inherit;
+	}
+}
+
+.social {
+
+	&__link {
+		color: inherit;
+		display: inline-flex;
+		padding: 3px;
+	}
+
+	&__icon {
+		width: 30px;
+		height: 30px;
+		flex-basis: 30px;
+		flex-shrink: 1;
+	}
+}
+
+
+.title {
+	font-family: 'Bebas Neue';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 98px;
+	line-height: 1.13;
+	letter-spacing: -0.025em;
+	color: #FFFFFF;
+	text-transform: uppercase;
+}
+
 .jumbotron {
+	display: flex;
+	justify-content: center;
 	&__title {
-		font-family: 'Bebas Neue Cyrillic';
-		font-style: normal;
-		font-weight: 400;
-		font-size: 98px;
-		line-height: 1.13;
-		letter-spacing: -0.025em;
-		color: #FFFFFF;
-		.stroke-text {
-		  stroke-width:7px;
+		margin: 0;
+		height: 166px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		.stroke-text-shadow {
+		  stroke-width:14px;
+		  stroke: rgba(25,25,25,1);
 		  fill:none;
+		  stroke-linecap: square;
 		}
+		.stroke-text {
+			fill: white;
+		}
+		&:after {
+			content: url("../images/fast-time.svg");
+			height: 166px;
+			width: 166px;
+			display: inline-block;
+		}
+	}
+	&__svg {
+		height: 112px;
+	}
+}
+
+.content {
+	display: flex;
+	justify-content: center;
+	&__container {
+		max-width: 1459px;
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+	&__form {
+		justify-self: end;
+	}
+	&__title {
+		margin: 0;
+	}
+	&__list {
+		font-family: 'Bebas Neue';
+		font-size: 48px;
+		font-weight: 400;
+		line-height: 1.5;
+		letter-spacing: -1.2px;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		&-item {
+			display: flex;
+			align-items: center;
+			&:before {
+				content: url("data:image/svg+xml;utf8,%3Csvg%20width%3D%2241%22%20height%3D%2241%22%20viewBox%3D%220%200%2041%2041%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M18.3231%2031.0698L34.4269%2014.966C34.7591%2014.6338%2034.9253%2014.2404%2034.9253%2013.7857C34.9253%2013.3311%2034.7591%2012.9377%2034.4269%2012.6055L31.7517%209.93028C31.4195%209.59806%2031.0261%209.43195%2030.5715%209.43195C30.1168%209.43195%2029.7234%209.59806%2029.3912%209.93028L17.1429%2022.1786L11.6089%2016.6446C11.2766%2016.3123%2010.8832%2016.1462%2010.4286%2016.1462C9.97399%2016.1462%209.58058%2016.3123%209.24836%2016.6446L6.57314%2019.3198C6.24092%2019.652%206.07481%2020.0454%206.07481%2020.5C6.07481%2020.9546%206.24092%2021.3481%206.57314%2021.6803L15.9626%2031.0698C16.2949%2031.402%2016.6883%2031.5681%2017.1429%2031.5681C17.5975%2031.5681%2017.9909%2031.402%2018.3231%2031.0698ZM40.6429%207.91075V33.0893C40.6429%2035.17%2039.9041%2036.9492%2038.4267%2038.4267C36.9492%2039.9041%2035.17%2040.6429%2033.0893%2040.6429H7.91075C5.83002%2040.6429%204.05091%2039.9041%202.57342%2038.4267C1.09592%2036.9492%200.357178%2035.17%200.357178%2033.0893V7.91075C0.357178%205.83002%201.09592%204.05091%202.57342%202.57342C4.05091%201.09592%205.83002%200.357178%207.91075%200.357178H33.0893C35.17%200.357178%2036.9492%201.09592%2038.4267%202.57342C39.9041%204.05091%2040.6429%205.83002%2040.6429%207.91075Z%22%20fill%3D%22%23F3CD20%22%2F%3E%0A%3C%2Fsvg%3E");
+				width: 41px;
+				height: 41px;
+				margin-right: 20px;
+				flex-shrink: 0;
+				display: inline-flex;
+			}
+		}
+	}
+}
+
+.form {
+	background: #FFF;
+	min-width: 573px;
+	box-sizing: border-box;
+	padding: 56px;
+	display: grid;
+	gap: 10px;
+
+	&__group {}
+
+	&__input {
+		color: #787878;
+		border: 1px solid #787878;
+		width: 100%;
+		@extend %input;
+	}
+
+	&__button {
+		background: #F3CD20;
+		width: 100%;
+		border: none;
+	}
+
+	&__footer {
+		margin-top: 12px;
+	}
+
+}
+
+.btn {
+	@extend %input;
+}
+
+footer {
+	padding: 30px 70px;
+}
+.shops {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	&__body {
+		display: flex;
+		gap: 30px;
+	}
+	&__addr {
+		.first-line {
+			text-transform: uppercase;
+		}
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.top {
+		position: absolute;
+		width: 100%;
+		box-sizing: border-box;
+		min-height: 100px;
+	}
+	.jumbotron {
+		background: linear-gradient(45deg, transparent 0%, transparent 1010px, rgb(243, 205, 32) 1010px);
+		padding-top: 140px;
+		min-height: 990px;
+  		box-sizing: border-box;
+
+  		&__title {
+			position: absolute;
+			width: 100%;
+			top: 0;
+  		}
+  		&__container {
+			max-width: 1159px;
+			position: relative;
+			padding-top: 30px;
+  		}
 	}
 }

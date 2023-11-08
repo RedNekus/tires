@@ -13,9 +13,9 @@ mixin shop(title, ...addrArray)
     div.shops__item
         h2= title
         if addrArray
-            div.shop__body
+            div.shops__body
                 each addr in addrArray
-                    div.shop__addr
+                    div.shops__addr
                         each line, i in addr
                             p(class=(i === 0 ? 'first-line' : '' ))= line
 
@@ -38,34 +38,41 @@ html(lang="ru")
                 |
                 |
                 +socialButtons(socialsList)
+            div.top__phone
+                a(href="tel:+375291703535") +375 (29) 170-35-35
             div.top__button
-                a.btn(href="#") На сайт магазина
+                a.btn.top__link(href="#") На сайт магазина
         main
             section.jumbotron
-                h1.jumbotron__title
-                    svg(version="1.1" xmlns="//www.w3.org/2000/svg" xmlns:xlink="//www.w3.org/1999/xlink" width="100%")
-                        text.stroke-text(y="50%" text-anchor="middle" dominant-baseline="hanging" fill="white" stroke-width="22" paint-order="stroke") Подберем шины быстро
-                div.jumbotron__picture
-                    img(src="images/main_picture.png")
+                div.jumbotron__container
+                    div.title.jumbotron__title
+                        div.jumbotron__svg
+                            svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 754 166" width="754")
+                                text.stroke-text-shadow(dx="7px" y="50%" dy="7px") Подберем шины быстро
+                                text.stroke-text(dx="7px" y="50%" dy="7px") Подберем шины быстро
+                    div.jumbotron__picture
+                        img(src="images/main_picture.png")
             section.content
-                div.content__decription
-                    ul.content__list
-                        each item in ['Оплата частями до 36 месяцев', 'Оплата картими рассрочек', 'Бесплатный шиномонтаж']
-                            li.content__list-item= item
-                div.content__form
-                    form.form
-                        each value, index in {'name' : 'Имя', 'phone' : 'Телефон', 'car_model' : 'Марка авто'}
-                            div.form__group 
-                                input(
-                                    type='text'
-                                    name=index
-                                    id=index
-                                    placeholder=value
-                                )
-                        div.form__footer
-                            button.btn.btn-form(
-                                type="submit" 
-                            ) Подобрать шины
+                div.content__container
+                    div.content__decriptions
+                        h2.title.content__title Шины в форсаж это:
+                        ul.content__list
+                            each item in ['Оплата частями до 36 месяцев', 'Оплата картими рассрочек', 'Бесплатный шиномонтаж']
+                                li.content__list-item= item
+                    div.content__form
+                        form.form
+                            each value, index in {'name' : 'Имя', 'phone' : 'Телефон', 'car_model' : 'Марка авто'}
+                                div.form__group 
+                                    input.form__input(
+                                        type='text'
+                                        name=index
+                                        id=index
+                                        placeholder=value
+                                    )
+                            div.form__footer
+                                button.btn.form__button(
+                                    type="submit" 
+                                ) Подобрать шины
 
         footer.footer
             div.shops
