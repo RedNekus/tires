@@ -3,7 +3,6 @@
 	padding: 23px 54px;
 	height: 75px;
 	box-sizing: border-box;
-
 }
 
 body {
@@ -11,8 +10,10 @@ body {
 	color: #FFFFFF;
 	font-family: 'Inter';
 	font-size: 20px;
+	line-height: 1.2;
 	margin: 0;
 	padding: 0;
+	font-weight: 400;
 }
 img {
 	max-width: 100%;
@@ -20,36 +21,48 @@ img {
 a {
 	text-decoration: none;
 }
+h1, h2 {
+	margin: 0;
+}
+p {
+	margin: 6px 0;
+}
 
 .top {
 	display: grid;
-	grid-template-columns:1fr repeat(3, auto);
-	gap: 30px;
 	align-items: center;
 	padding: 30px 70px;
-	color: #000;
 	font-size: 24px;
 	.logo {
 		width: 180px;
 		height: 32px;
-		flex-shrink: 0;
 	}
 	&__link {
 		text-decoration: none;
 		color: inherit;
 		border: 1px solid #787878;
+		&:hover {
+			border-color: #191919;
+		}
 	}
 	&__phone a {
 		color: inherit;
+		&:hover {
+			color: rgba(0,0,0,.7);
+		}
 	}
 }
 
 .social {
-
+	mix-blend-mode: difference;
+	color: #f3cd20;
 	&__link {
 		color: inherit;
 		display: inline-flex;
 		padding: 3px;
+		&:hover {
+			color: rgba(0,0,0,.7);
+		}
 	}
 
 	&__icon {
@@ -63,12 +76,9 @@ a {
 
 .title {
 	font-family: 'Bebas Neue';
-	font-style: normal;
 	font-weight: 400;
 	font-size: 98px;
-	line-height: 1.13;
 	letter-spacing: -0.025em;
-	color: #FFFFFF;
 	text-transform: uppercase;
 }
 
@@ -76,33 +86,45 @@ a {
 	display: flex;
 	justify-content: center;
 	&__title {
-		margin: 0;
-		height: 166px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		.stroke-text-shadow {
-		  stroke-width:14px;
-		  stroke: rgba(25,25,25,1);
-		  fill:none;
-		  stroke-linecap: square;
+		line-height: 1.13;
+		position: relative;
+		z-index: 0;
+
+		&::before {
+			content: attr(data-text);
+			position: absolute;
+			top: 0;
+			margin: inherit;
+			-webkit-text-stroke: 14px #191919;
+			z-index: -1;
 		}
-		.stroke-text {
-			fill: white;
+		span {
+			position: absolute;
+			top:0;
 		}
-		&:after {
-			content: url("../images/fast-time.svg");
-			height: 166px;
-			width: 166px;
-			display: inline-block;
+		&-container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			&:after {
+				content: url("../images/fast-time.svg");
+				height: 166px;
+				width: 166px;
+				display: inline-block;
+				margin-left: 17px;
+			}
 		}
 	}
 	&__svg {
 		height: 112px;
 	}
+	&__container {
+		box-sizing: border-box;
+	}
 }
 
 .content {
+	margin: 200px 0;
 	display: flex;
 	justify-content: center;
 	&__container {
@@ -115,12 +137,11 @@ a {
 		justify-self: end;
 	}
 	&__title {
-		margin: 0;
+		line-height: 1.5;
 	}
 	&__list {
 		font-family: 'Bebas Neue';
 		font-size: 48px;
-		font-weight: 400;
 		line-height: 1.5;
 		letter-spacing: -1.2px;
 		list-style: none;
@@ -149,8 +170,6 @@ a {
 	display: grid;
 	gap: 10px;
 
-	&__group {}
-
 	&__input {
 		color: #787878;
 		border: 1px solid #787878;
@@ -159,7 +178,6 @@ a {
 	}
 
 	&__button {
-		background: #F3CD20;
 		width: 100%;
 		border: none;
 	}
@@ -172,31 +190,62 @@ a {
 
 .btn {
 	@extend %input;
-}
-
-footer {
-	padding: 30px 70px;
-}
-.shops {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	&__body {
-		display: flex;
-		gap: 30px;
-	}
-	&__addr {
-		.first-line {
-			text-transform: uppercase;
+	cursor: pointer;
+	white-space: nowrap;
+	&--yellow {
+		background-color: #F3CD20;
+		color: #000;
+		&:hover {
+			background-color: #191919;
+			color: white;
 		}
 	}
 }
 
-@media only screen and (min-width: 992px) {
+footer {
+	margin: 40px 70px;
+}
+.shops {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	border-top: 1px solid rgba(255,255,255,.2);
+	gap: 50px;
+	&__body {
+		display: flex;
+		gap: 30px;
+	}
+	&__title {
+		font-size: 33px;
+		line-height: normal;
+		padding: 30px 0;
+		border-bottom: 1px solid rgba(255,255,255,.2);
+	}
+	&__addr {
+		flex-basis: 50%;
+		flex-grow: 1;
+		padding-right: 30px;
+		padding-top: 20px;
+		padding-bottom: 10px;
+		.first-line {
+			text-transform: uppercase;
+		}
+		&:nth-last-child(n + 2) {
+			border-right: 1px solid rgba(255,255,255,.2);
+		}
+	}
+	&__item:nth-last-child(n + 2) {
+	}
+}
+
+@media only screen and (min-width: 1200px) {
 	.top {
 		position: absolute;
 		width: 100%;
 		box-sizing: border-box;
 		min-height: 100px;
+		color: #000;
+		grid-template-columns: 1fr repeat(3, auto);
+		column-gap: 30px;
 	}
 	.jumbotron {
 		background: linear-gradient(45deg, transparent 0%, transparent 1010px, rgb(243, 205, 32) 1010px);
@@ -204,15 +253,45 @@ footer {
 		min-height: 990px;
   		box-sizing: border-box;
 
-  		&__title {
-			position: absolute;
-			width: 100%;
-			top: 0;
-  		}
   		&__container {
 			max-width: 1159px;
 			position: relative;
-			padding-top: 30px;
+			padding: 30px 70px;
   		}
 	}
+}
+@media only screen and (max-width: 1199px) {
+	.top {
+		grid-template-columns: 1fr auto;
+		min-height: 140px;
+		row-gap: 24px;
+		&__phone {
+			grid-row-start: 1;
+			grid-column-start: 2;
+			border-bottom: 1px solid #DDD;
+			align-self: end;
+			padding-bottom: 24px;
+			min-height: 32px;
+			display: inline-flex;
+			justify-content: end;
+		}
+		&__logo {
+			border-bottom: 1px solid #DDD;
+			align-self: end;
+			padding-bottom: 24px;
+		}
+	}
+	.social {
+		grid-row-start: 2;
+		color: inherit;
+	}
+	.jumbotron {
+		background-color: rgb(243, 205, 32);
+		&__container {
+			padding: 30px 90px;
+		}
+	}
+}
+@media only screen and (min-width: 992px) {
+
 }

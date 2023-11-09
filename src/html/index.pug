@@ -11,7 +11,7 @@ mixin socialButtons(socials)
         |
 mixin shop(title, ...addrArray)
     div.shops__item
-        h2= title
+        h2.shops__title= title
         if addrArray
             div.shops__body
                 each addr in addrArray
@@ -32,8 +32,9 @@ html(lang="ru")
     body
         include ./components/icons.pug  
         header.top
-            div.logo
-                img.logo__img(src="images/logo.svg")
+            div.top__logo
+                div.logo
+                    img.logo__img(src="images/logo.svg")
             div.social
                 |
                 |
@@ -41,15 +42,12 @@ html(lang="ru")
             div.top__phone
                 a(href="tel:+375291703535") +375 (29) 170-35-35
             div.top__button
-                a.btn.top__link(href="#") На сайт магазина
+                a.btn.btn--transparent.top__link(href="#") На сайт магазина
         main
             section.jumbotron
                 div.jumbotron__container
-                    div.title.jumbotron__title
-                        div.jumbotron__svg
-                            svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 754 166" width="754")
-                                text.stroke-text-shadow(dx="7px" y="50%" dy="7px") Подберем шины быстро
-                                text.stroke-text(dx="7px" y="50%" dy="7px") Подберем шины быстро
+                    div.jumbotron__title-container
+                        h1.title.jumbotron__title(data-text="Подберем шины быстро") Подберем шины быстро
                     div.jumbotron__picture
                         img(src="images/main_picture.png")
             section.content
@@ -70,7 +68,7 @@ html(lang="ru")
                                         placeholder=value
                                     )
                             div.form__footer
-                                button.btn.form__button(
+                                button.btn.btn--yellow.form__button(
                                     type="submit" 
                                 ) Подобрать шины
 
