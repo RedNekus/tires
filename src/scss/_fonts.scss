@@ -4,23 +4,24 @@
     font-style: normal;
     font-weight: 400;
     font-display: fallback;
-    src: local('Inter.ttf') url('../fonts/Inter.woff2') format('woff2'),
+    src: local('Inter.ttf'),
+        url('../fonts/Inter.woff2') format('woff2'),
         url('../fonts/Inter.woff') format('woff');
 }
 @font-face {
     font-family: 'Bebas Neue';
-    src: url('BebasNeueRegular.eot');
+    src: url('../fonts/BebasNeueRegular.eot');
     src: local('Bebas Neue Regular'), local('BebasNeueRegular'),
         url('../fonts/BebasNeueRegular.eot?#iefix') format('embedded-opentype'),
         url('../fonts/../fonts/BebasNeueRegular.woff') format('woff'),
-        url('BebasNeueRegular.ttf') format('truetype');
+        url('../fonts/BebasNeueRegular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Bebas Neue';
-    src: url('BebasNeueBold.eot');
+    src: url('../fonts/BebasNeueBold.eot');
     src: local('Bebas Neue Bold'), local('BebasNeueBold'),
         url('../fonts/BebasNeueBold.eot?#iefix') format('embedded-opentype'),
         url('../fonts/BebasNeueBold.woff') format('woff'),
@@ -31,7 +32,7 @@
 
 @font-face {
     font-family: 'Bebas Neue';
-    src: url('BebasNeueLight.eot');
+    src: url('../fonts/BebasNeueLight.eot');
     src: local('Bebas Neue Light'), local('BebasNeueLight'),
         url('../fonts/BebasNeueLight.eot?#iefix') format('embedded-opentype'),
         url('../fonts/BebasNeueLight.woff') format('woff'),
@@ -42,7 +43,7 @@
 
 @font-face {
     font-family: 'Bebas Neue';
-    src: url('BebasNeue-Thin.eot');
+    src: url('../fonts/BebasNeue-Thin.eot');
     src: local('Bebas Neue Thin'), local('BebasNeue-Thin'),
         url('../fonts/BebasNeue-Thin.eot?#iefix') format('embedded-opentype'),
         url('../fonts/BebasNeue-Thin.woff') format('woff'),
@@ -53,7 +54,7 @@
 
 @font-face {
     font-family: 'Bebas Neue Book';
-    src: url('BebasNeueBook.eot');
+    src: url('../fonts/BebasNeueBook.eot');
     src: local('Bebas Neue Book'), local('BebasNeueBook'),
         url('../fonts/BebasNeueBook.eot?#iefix') format('embedded-opentype'),
         url('../fonts/BebasNeueBook.woff') format('woff'),
