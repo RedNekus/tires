@@ -24,16 +24,18 @@ html(lang="ru")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title TEST DOCUMENT
-        meta(name="description" content="")
+        title Подбор шин по марке авто в Слониме ⦿ в автотехцентре "Форсаж" ✅
+        meta(name="description" content="Подбор шин по марке авто в Слониме в магазине &#171;Форсаж	&#187;. ✔️Оплата частями до 36 мес., ✔️карты рассрочек, ✔️бесплатный шиномонтаж на экспресс-сервисе. +375291703535")
         link(rel="icon" href="favicons/favicon.ico" sizes="any")
         link(rel="apple-touch-icon" href="favicons/apple-touch-icon-180x180.png" sizes="180x180")
         link(rel="stylesheet" href="css/style.min.css")
+        script(src="js/form.min.js" type="module")
+        base(href=".")
     body
         include ./components/icons.pug  
         header.top
-            div.top__logo
-                div.logo
+            div.logo.top__logo
+                a.logo__link(href="http://for24.by")
                     img.logo__img(src="images/logo.svg")
             div.social
                 |
@@ -54,12 +56,12 @@ html(lang="ru")
             section.content
                 div.content__container
                     div.content__decriptions
-                        h2.title.content__title Шины в форсаж это:
+                        h2.title.content__title Шины в форсаж – это:
                         ul.content__list
-                            each item in ['Оплата частями до 36 месяцев', 'Оплата картими рассрочек', 'Бесплатный шиномонтаж']
+                            each item in ['Оплата частями до 36 месяцев', 'Оплата картами рассрочек', 'Бесплатный шиномонтаж']
                                 li.content__list-item= item
                     div.content__form
-                        form.form
+                        form.form.js-form(action="/send_form.php" method="POST")
                             each value, index in {'name' : 'Имя', 'phone' : 'Телефон', 'car_model' : 'Марка авто'}
                                 div.form__group 
                                     input.form__input(
