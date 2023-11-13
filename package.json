@@ -22,8 +22,6 @@
     "sass": "^1.69.5"
   },
   "dependencies": {
-    "gulp": "^4.0.2",
-    "validate": "^5.2.0",
-    "validate.js": "^0.13.1"
+    "gulp": "^4.0.2"
   }
 }

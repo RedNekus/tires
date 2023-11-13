@@ -29,8 +29,9 @@ html(lang="ru")
         link(rel="icon" href="favicons/favicon.ico" sizes="any")
         link(rel="apple-touch-icon" href="favicons/apple-touch-icon-180x180.png" sizes="180x180")
         link(rel="stylesheet" href="css/style.min.css")
-        script(src="js/form.min.js" type="module")
-        base(href=".")
+        script(src="js/validate.min.js")
+        script(src="js/imask.js")
+        script(src="js/form.min.js")
     body
         include ./components/icons.pug  
         header.top
@@ -100,3 +101,8 @@ html(lang="ru")
                         'Пн-Пт: с 9:00 до 20:00, Сб: с 9:00 до 19:00, Вс: с 9:00 до 18:00'
                     ]
                 )
+        div.popup__bg
+            div.popup
+                svg.close-popup
+                    use(xlink:href="#close")
+                div.popup__body Спасибо! Наш менеджер скоро с вами свяжется для уточнения деталей!

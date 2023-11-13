@@ -32,7 +32,8 @@ const minifyJS = () => {
             ext:{
                 min:'.min.js'
             },
-            noSource: true,
+            noSource: false,
+            ignoreFiles: ['*.min.js']
         }))
         .pipe(dest('./public/js'))
 }

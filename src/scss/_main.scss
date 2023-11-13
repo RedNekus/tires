@@ -156,6 +156,9 @@ p {
 		border: 1px solid #787878;
 		width: 100%;
 		@extend %input;
+		&.error {
+			border-color: red;
+		}
 	}
 	&__button {
 		width: 100%;
@@ -164,7 +167,11 @@ p {
 	&__footer {
 		margin-top: 12px;
 	}
-
+	&__group {
+		.error {
+			color: red;
+		}
+	}
 }
 
 .btn {
@@ -208,6 +215,53 @@ footer {
 			text-transform: uppercase;
 		}
 	}
+}
+
+.popup {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	background: #fff;
+	width: 400px;
+	padding: 50px;
+	transition: 0.5s all;
+
+	&.active {
+		transform: translate(-50%, -50%) scale(1);
+		transition: 0.5s all;
+	}
+	&__body {
+		padding-top: 25px;
+		color: #323232;
+		text-align: center;
+	}
+	&__bg {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background: rgba(0,0,0,0.5);
+		opacity: 0;
+		pointer-events: none;
+		transition: 0.5s all;
+		&.active {
+			opacity: 1;
+			pointer-events: all;
+			transition: 0.5s all;
+		}
+	}
+}
+
+.close-popup {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	cursor: pointer;
+	width: 26px;
+	height: 26px;
+	color: #323232;
 }
 
 @media only screen and (min-width: 1200px) {
