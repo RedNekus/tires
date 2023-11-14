@@ -22,16 +22,20 @@ mixin shop(title, ...addrArray)
 doctype html
 html(lang="ru")
     head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Подбор шин по марке авто в Слониме ⦿ в автотехцентре "Форсаж" ✅
         meta(name="description" content="Подбор шин по марке авто в Слониме в магазине &#171;Форсаж	&#187;. ✔️Оплата частями до 36 мес., ✔️карты рассрочек, ✔️бесплатный шиномонтаж на экспресс-сервисе. +375291703535")
+        meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+        meta(content="text/html; charset=UTF-8" http-equiv="Content-Type")
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="icon" href="favicons/favicon.ico" sizes="any")
         link(rel="apple-touch-icon" href="favicons/apple-touch-icon-180x180.png" sizes="180x180")
         link(rel="stylesheet" href="css/style.min.css")
         script(src="js/validate.min.js")
         script(src="js/imask.js")
         script(src="js/form.min.js")
+        script(src="js/scroll.min.js")
+        include ./components/metrika.html
     body
         include ./components/icons.pug  
         header.top
@@ -45,7 +49,7 @@ html(lang="ru")
             div.top__phone
                 a(href="tel:+375291703535") +375 (29) 170-35-35
             div.top__button
-                a.btn.btn--transparent.top__link(href="#") На сайт магазина
+                a.btn.btn--transparent.top__link(href="https://for24.by") На сайт магазина
         main
             section.jumbotron
                 div.jumbotron__container
@@ -101,6 +105,8 @@ html(lang="ru")
                         'Пн-Пт: с 9:00 до 20:00, Сб: с 9:00 до 19:00, Вс: с 9:00 до 18:00'
                     ]
                 )
+        div.up(id="ToTop" title="Вверх") ⇧
+        div.down(id="OnBottom" title="Вниз") ⇩
         div.popup__bg
             div.popup
                 svg.close-popup
